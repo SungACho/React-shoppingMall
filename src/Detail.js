@@ -1,7 +1,9 @@
 /* eslint-disable*/
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import './Detail.scss';
+
 
 let 박스 = styled.div`
   padding : 20px;
@@ -47,7 +49,14 @@ function Detail(props){
         <박스>
           <제목 색상="blue">Detail</제목>
           <제목 색상={'red'}>Detail</제목>
+          <제목 className='red'>Detail</제목> 
         </박스>
+        
+        
+        <div className='my-alert2'>
+          <p>재고가 얼마 남지 않았습니다.</p>
+        </div>
+
             <div className="row">
               <div className="col-md-6">
                 <img src={"https://codingapple1.github.io/shop/shoes"+(props.shoes[id].id+1)+".jpg"} width="100%" />
