@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="#home">ShoesShop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -61,8 +61,8 @@ function App() {
           </div>
         </div>
       </Route>
-      <Route path="/detail"> 
-        <Detail/>
+      <Route path="/detail/:id"> 
+        <Detail shoes={shoes}/>
       </Route>
       <Route path="/:id">
           <div>아무거나 적었을 때 보여주세요</div>
@@ -75,12 +75,16 @@ function App() {
   );
 }
 function Card(props){
+  let id = props.shoes.id;
+  let url = "/detail/"+id;
   return (
-    <div className='col-md-4'>
-      <img src={"https://codingapple1.github.io/shop/shoes" + (props.shoes.id +1) +".jpg"} width="100%"/>
-      <h4>{props.shoes.title}</h4>
-      <p>{props.shoes.content} & {props.shoes.price}</p>
-    </div>    
+    <Link to={url}>
+      <div className='col-md-4'>
+        <img src={"https://codingapple1.github.io/shop/shoes" + (props.shoes.id +1) +".jpg"} width="100%"/>
+        <h4>{props.shoes.title}</h4>
+        <p>{props.shoes.content} & {props.shoes.price}</p>
+      </div>
+    </Link>  
   )
 }
 
